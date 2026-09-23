@@ -1,10 +1,7 @@
 pipeline {
     agent any
     environment {
-        docker.withRegistry(
-    'https://index.docker.io/v1/',
-    'dockerhub-credentials'
-)
+       DOCKER_HUB_CREDENTIALS = credentials('dockerhub-credentials')'
     }
     stages {
         stage('Checkout Code') {
