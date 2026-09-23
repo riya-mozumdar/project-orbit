@@ -1,7 +1,10 @@
 pipeline {
     agent any
     environment {
-        DOCKER_HUB_CREDENTIALS = credentials('dockerhub-credentials')
+        docker.withRegistry(
+    'https://index.docker.io/v1/',
+    'dockerhub-credentials'
+)
     }
     stages {
         stage('Checkout Code') {
@@ -19,7 +22,10 @@ pipeline {
         stage('Push Docker Image to Docker Hub') {
             steps {
                 script {
-                    docker.withRegistry('https://index.docker.io/v1/', DOCKER_HUB_CREDENTIALS) {
+                    docker.withRegistry('docker.withRegistry(
+    'https://index.docker.io/v1/',
+    'dockerhub-credentials'
+) {
                         def app = docker.build("riya2125/example")
                         app.push('latest')
                     }
