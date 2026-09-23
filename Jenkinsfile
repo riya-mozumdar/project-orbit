@@ -20,7 +20,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://index.docker.io/v1/', DOCKER_HUB_CREDENTIALS) {
-                        def app = docker.build("yourdockerhubusername/sample-node-app")
+                        def app = docker.build("riya2125/example")
                         app.push('latest')
                     }
                 }
