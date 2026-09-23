@@ -12,7 +12,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    docker.build("yourdockerhubusername/sample-node-app")
+                    docker.build("riya2125/example")
                 }
             }
         }
